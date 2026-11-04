@@ -1,0 +1,35 @@
+[
+  {
+    "name": "work_to_blog_adk_eval_suite",
+    "description": "ADK CLI (`adk eval`) test suite verifying tool trajectories and grounded blog generation.",
+    "data": [
+      {
+        "query": "Help me write a technical blog post based on the work I am doing in this repository.",
+        "expected_tool_use": [
+          {
+            "tool_name": "extract_engineering_work_artifacts",
+            "tool_input": {
+              "workspace_or_repo_path": ".",
+              "commit_range_or_limit": "5"
+            }
+          },
+          {
+            "tool_name": "search_technical_reference_knowledge",
+            "tool_input": {
+              "search_query": "technical blog post engineering work",
+              "target_audience": "software_engineers",
+              "max_results": 3
+            }
+          },
+          {
+            "tool_name": "generate_seo_optimized_blog_outline"
+          },
+          {
+            "tool_name": "evaluate_blog_draft_readability_and_tone"
+          }
+        ],
+        "reference": "A comprehensive technical blog post grounded in the repository's commits, structured with Markdown headings, annotated code blocks, and OpenTelemetry/guardrail verification."
+      }
+    ]
+  }
+]
